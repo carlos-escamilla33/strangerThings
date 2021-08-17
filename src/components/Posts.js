@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchPostData } from "../apiCalls/apiCalls";
 
-const Posts = () => {
-    const [posts, setPosts] = useState([]);
+const Posts = (props) => {
+    const {posts, setPosts} = props
 
     const fetchPosts = async () => {
         try {
