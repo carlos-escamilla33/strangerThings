@@ -5,6 +5,7 @@ import Register from "./components/Register.js"
 const App = () => {
   return (
       <>
+        <Register />
         <Posts />
       </>
   )

@@ -23,9 +23,11 @@ const Posts = () => {
             {
                 posts.map(post => {
                     return (
-                        <div post={post.key}>
-                            <h3>{post.title}</h3>
-                            <div>{post.body}</div>
+                        <div key={post._id}>
+                            <h2>{post.title}</h2>
+                            <p>{post.description}</p>
+                            <h4>Price: {post.price}</h4>
+                            <h4>Location: {post.location}</h4>
                         </div>
                     )
                 })
