@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchRegisterData } from "../api";
+import { fetchRegisterData } from "../apiCalls/apiCalls";
 
 const Register = () => {
     const [username, setUsername] = useState('');

@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import Posts from "./components/Posts.js"
-import Register from "./components/Register.js"
+import {
+  Login,
+  Navbar,
+  Posts,
+  Register
+} from "./components";
 const App = () => {
   return (
       <>
