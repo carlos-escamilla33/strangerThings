@@ -5,12 +5,31 @@ const APIURL = `https://strangers-things.herokuapp.com/api/${cohortName}/`;
 
 export const fetchPostData = async () => {
     try {
-        const response = await fetch(`${APIURL}/posts`);
+        const response = await fetch(`${APIURL}/posts`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer TOKEN_STRING_HERE'
+            },
+            body: JSON.stringify({
+                post: {
+                    title: "My favorite stuffed animal",
+                    description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
+                    price: "$480.00",
+                    willDeliver: true
+                }
+            })
+        });
         const result = await response.json();
-
-        if (result.error) throw result.error;
-        return result.data.posts;
-    } catch (err) {
+        return result;
+    } 
+    catch (err) {
         console.log(err);
     }
 }
+
+// export const fetchRegisterData = async () => {
+//     try {
+//         const response = await fetch(`${APIURL}/users/register`,)
+//     }
+// }

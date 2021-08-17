@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchPostData } from "./api";
+import { fetchPostData } from "../api";
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
@@ -25,8 +25,7 @@ const Posts = () => {
                     return (
                         <div post={post.key}>
                             <h3>{post.title}</h3>
-                            <div>{post.description}</div>
-                            <div>{post.price}</div>
+                            <div>{post.body}</div>
                         </div>
                     )
                 })
