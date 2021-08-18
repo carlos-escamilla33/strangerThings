@@ -24,8 +24,8 @@ export const fetchRegisterData = async (user) => {
             },
             body: JSON.stringify({
                 user: {
-                    username: "user.username",
-                    password: "user.password"
+                    username: user.username,
+                    password: user.password
                 }
             })
         })
@@ -36,6 +36,8 @@ export const fetchRegisterData = async (user) => {
         console.log(err)
     }
 }
+
+console.log(fetchRegisterData)
 
 export const fetchLoginData = async () => {
     try {
