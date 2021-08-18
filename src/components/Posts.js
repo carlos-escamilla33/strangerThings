@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchPostData } from "../apiCalls/apiCalls";
+import { fetchPostData } from "../apiCalls";
 
 const Posts = (props) => {
     const {posts, setPosts} = props
