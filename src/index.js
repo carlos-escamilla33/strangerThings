@@ -11,6 +11,11 @@ import {
 
 const App = () => {
   const [posts, setPosts] = useState([]);
+  const [token, setToken] = useState("");
+
+  if (token.length > 0){
+    console.log("in the index.js--->", token)
+  }
 
   return (
     <>
@@ -26,7 +31,7 @@ const App = () => {
           <Posts posts={posts} setPosts={setPosts} />
         </Route>
         <Route path="/users/register">
-          <Register />
+          <Register setToken={setToken}/>
         </Route>
       </Switch>
     </>

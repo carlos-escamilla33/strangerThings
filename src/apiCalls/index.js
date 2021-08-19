@@ -15,29 +15,22 @@ export const fetchPostData = async () => {
     }
 }
 
-export const fetchRegisterData = async (user) => {
+export const fetchRegisterData = async (formData) => {
     try {
         const response = await fetch(`${APIURL}/users/register/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                user: {
-                    username: user.username,
-                    password: user.password
-                }
-            })
+            body: JSON.stringify(formData)
         })
         const result = await response.json();
-        return result
+        return result.data.token
     }
     catch (err) {
         console.log(err)
     }
 }
-
-console.log(fetchRegisterData)
 
 export const fetchLoginData = async () => {
     try {
