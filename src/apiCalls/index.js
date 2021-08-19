@@ -15,17 +15,22 @@ export const fetchPostData = async () => {
     }
 }
 
-export const fetchRegisterData = async (formData) => {
+export const fetchRegisterData = async (username, password) => {
     try {
         const response = await fetch(`${APIURL}/users/register/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify({
+                user: {
+                    username,
+                    password
+                }
+            })
         })
         const result = await response.json();
-        return result.data.token
+        return result.data
     }
     catch (err) {
         console.log(err)
@@ -41,8 +46,8 @@ export const fetchLoginData = async () => {
             },
             body: JSON.stringify({
                 user: {
-                    username: "user.username",
-                    password: "user.password"
+                    username,
+                    password
                 }
             })
         })

@@ -10,12 +10,12 @@ import {
 } from "./components";
 
 const App = () => {
-  const [posts, setPosts] = useState([]);
   const [token, setToken] = useState("");
+  const [user, setUser] = useState({});
 
-  if (token.length > 0){
-    console.log("in the index.js--->", token)
-  }
+  console.log(user);
+
+  console.log(token);
 
   return (
     <>
@@ -28,10 +28,10 @@ const App = () => {
           <Login />
         </Route>
         <Route path="/posts">
-          <Posts posts={posts} setPosts={setPosts} />
+          <Posts />
         </Route>
         <Route path="/users/register">
-          <Register setToken={setToken}/>
+          <Register setToken={setToken} setUser={setUser}/>
         </Route>
       </Switch>
     </>

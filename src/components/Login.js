@@ -1,13 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState} from "react";
+import {Link} from "react-router-dom";
+import {fetchLoginData} from "../apiCalls";
+import {useHistory} from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
+
+    const fetchLoginData = async () => {
+        try {
+            const response = fetchLoginData(username, password);
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        setUsername("")
+        setPassword("");
     }
 
 
