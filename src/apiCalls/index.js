@@ -37,7 +37,7 @@ export const fetchRegisterData = async (username, password) => {
     }
 }
 
-export const fetchLoginData = async () => {
+export const fetchLoginData = async (username, password) => {
     try {
         const response = await fetch(`${APIURL}/users/login/`, {
             method: "POST",
@@ -52,8 +52,7 @@ export const fetchLoginData = async () => {
             })
         })
         const result = await response.json()
-        console.log(result)
-        return result;
+        return result.data;
     }
     catch (err) {
         console.log(err)

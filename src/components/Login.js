@@ -1,26 +1,44 @@
-import React, { useState} from "react";
-import {Link} from "react-router-dom";
-import {fetchLoginData} from "../apiCalls";
-import {useHistory} from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { fetchLoginData } from "../apiCalls";
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
+    const { setToken,  setUser} = props;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
 
-    const fetchLoginData = async () => {
+    const fetchDataLogin = async () => {
         try {
-            const response = fetchLoginData(username, password);
+            const response = await fetchLoginData(username, password);
+            if (response) {
+                setToken(response.token)
+                setUser(response.user)
+                if (response.token) {
+                    history.push("/")
+                }
+            }
         }
         catch (err) {
             console.log(err)
         }
     }
 
+    const loginUsernameHandler = (event) => {
+        setUsername(event.target.value)
+    }
+
+    const loginPasswordHandler = (event) => {
+        setPassword(event.target.value)
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        setUsername("")
+        fetchDataLogin();
+
+        setUsername("");
         setPassword("");
     }
 
@@ -28,16 +46,28 @@ const Login = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
+                <h2>Login</h2>
                 <div>
-                    <input placeholder="Username"minLength="8" type='text' name='username' value={username} onChange={(event) => setUsername(event.target.value)} required />
+                    <input
+                        placeholder="Username"
+                        value={username}
+                        onChange={loginUsernameHandler}
+                        minLength="8"
+                        type='text'
+                        required />
                 </div>
                 <div>
-                    <input placeholder="Password"minLength="8" type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} required />
+                    <input
+                        placeholder="Password"
+                        value={password}
+                        onChange={loginPasswordHandler}
+                        minLength="8"
+                        type='password'
+                        required />
                 </div>
-                <button type='submit'>Login</button>
+                <button type="submit" disabled={!username || !password}>Login</button>
             </form>
-            <Link to="users/register">
+            <Link to="/users/register">
                 Don't have an account? Sign Up
             </Link>
         </>

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.css";
 import {
+  Home,
   Login,
   Navbar,
   Posts,
@@ -11,27 +12,27 @@ import {
 
 const App = () => {
   const [token, setToken] = useState("");
-  const [user, setUser] = useState({});
-
-  console.log(user);
+  const [user, setUser] = useState("");
 
   console.log(token);
+
+  console.log(user);
 
   return (
     <>
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <h1>Welcome to Stranger Things</h1>
+          <Home token={token}/>
         </Route>
-        <Route path="/login">
-          <Login />
+        <Route path="/users/login">
+          <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">
           <Posts />
         </Route>
         <Route path="/users/register">
-          <Register setToken={setToken} setUser={setUser}/>
+          <Register setToken={setToken}/>
         </Route>
       </Switch>
     </>

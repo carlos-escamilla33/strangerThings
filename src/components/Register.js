@@ -27,7 +27,7 @@ const Register = (props) => {
                 if (response) {
                     setToken(response.token)
                     if (response.token) {
-                        history.push("/login")
+                        history.push("/users/login")
                     }
                 }
             }
