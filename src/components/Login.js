@@ -14,8 +14,8 @@ const Login = (props) => {
             const response = await fetchLoginData(username, password);
             if (response) {
                 setToken(response.token)
-                setUser(response.user)
-                if (response.token) {
+                setUser(username)
+                if (response.token ) {
                     history.push("/")
                 }
             }

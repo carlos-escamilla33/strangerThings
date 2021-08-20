@@ -26,7 +26,7 @@ const Register = (props) => {
                 const response = await fetchRegisterData(username, password);
                 if (response) {
                     setToken(response.token)
-                    if (response.token) {
+                    if (response.token ) {
                         history.push("/users/login")
                     }
                 }

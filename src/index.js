@@ -23,7 +23,7 @@ const App = () => {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home token={token}/>
+          <Home user={user}/>
         </Route>
         <Route path="/users/login">
           <Login setToken={setToken} setUser={setUser} />
