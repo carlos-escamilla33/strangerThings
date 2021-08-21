@@ -25,7 +25,7 @@ const Navbar = (props) => {
                         <h4 className="navbar-item" >Posts</h4>
                     </Link>
                     <Link style={style} to="/profile">
-                        <h4 className="navbar-item" >Profile</h4>
+                        <h4 className="navbar-item">Profile</h4>
                     </Link>
                     <Link style={style} to="/users/login">     
                         <h4 onClick={logout}>Logout</h4>

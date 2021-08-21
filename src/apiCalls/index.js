@@ -59,7 +59,7 @@ export const fetchLoginData = async (username, password) => {
     }
 }
 
-export const fetchCreatedPosts = async (token, title, description, price,  willDeliver) => {
+export const fetchCreatedPosts = async ({token, title, description, price, location}) => {
     try {
         const response = await fetch(`${APIURL}/posts`, {
             method: "POST",
@@ -72,7 +72,7 @@ export const fetchCreatedPosts = async (token, title, description, price,  willD
                     title,
                     description,
                     price,
-                    willDeliver
+                    location
                 }
             })
         })

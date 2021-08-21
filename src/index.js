@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import {
   Home,
   Profile,
+  UserPosts,
   Login,
   Navbar,
   Posts,
@@ -35,8 +36,11 @@ const App = () => {
         <Route path="/users/register">
           <Register setToken={setToken}/>
         </Route>
-        <Route>
+        <Route path="/profile">
           <Profile token={token}/>
+        </Route>
+        <Route path="/users/posts/add">
+          <UserPosts />
         </Route>
       </Switch>
     </>

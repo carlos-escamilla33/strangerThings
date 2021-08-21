@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLoginData } from "../apiCalls";
 import { useHistory } from "react-router-dom";
-import "./css/account.css";
+import "./css/userinfo.css";
 
 const Login = (props) => {
     const { setToken, setUser } = props;
@@ -55,7 +55,7 @@ const Login = (props) => {
                     <h2 className="center title">Login</h2>
                     <div className="center">
                         <input
-                            placeholder="Username"
+                            placeholder=" Username"
                             value={username}
                             onChange={loginUsernameHandler}
                             minLength="8"
@@ -64,7 +64,7 @@ const Login = (props) => {
                     </div>
                     <div className="center">
                         <input
-                            placeholder="Password"
+                            placeholder=" Password"
                             value={password}
                             onChange={loginPasswordHandler}
                             minLength="8"

@@ -37,7 +37,11 @@ const Posts = (props) => {
             <form>
                 <label><h1>POST</h1></label>
                 {
-                    token ? <input placeholder="Add Post"></input> : null
+                    token ?  
+                    <Link to="/users/posts/add">
+                        <button type="submit" className="btn btn-lg btn-success">Add Post</button>
+                    </Link>
+                    : null
                 }
                 <input placeholder="Search Posts"></input>
             </form>

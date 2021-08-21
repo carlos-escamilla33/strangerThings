@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchRegisterData } from "../apiCalls";
-import "./css/account.css";
+import "./css/userinfo.css";
 
 const Register = (props) => {
-    const { setToken, setUser } = props
+    const { setToken } = props
     const history = useHistory();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -45,7 +45,7 @@ const Register = (props) => {
     }
 
     const goBack = () => history.goBack();
-    
+
     return (
         <>
             <nav className="navbar navbar-dark bg-dark">
@@ -63,7 +63,7 @@ const Register = (props) => {
                 <p className="center">Create your account. It's free and only takes a minute.</p>
                 <div className="center">
                     <input
-                        placeholder="Username"
+                        placeholder=" Username"
                         value={username}
                         onChange={usernameChangeHandler}
                         minLength="8"
@@ -72,7 +72,7 @@ const Register = (props) => {
                 </div>
                 <div className="center">
                     <input
-                        placeholder="Password"
+                        placeholder=" Password"
                         value={password}
                         onChange={passwordChangeHandler}
                         minLength="8"
