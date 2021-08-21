@@ -39,7 +39,7 @@ const Posts = (props) => {
                 {
                     token ?  
                     <Link to="/users/posts/add">
-                        <button type="submit" className="btn btn-lg btn-success">Add Post</button>
+                        <button type="submit" className="btn btn-success">Add Post</button>
                     </Link>
                     : null
                 }

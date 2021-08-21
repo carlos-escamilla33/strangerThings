@@ -11,11 +11,10 @@ const UserPosts = (props) => {
     const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
 
-    const fetchUserPost = async (token, title, description, price, location) => {
+    const fetchUserPost = async () => {
         try {
             const response = await fetchCreatedPosts(token, title, description, price, location);
-            setTitle(title);
-            setDescription(description);
+            return response
         }
         catch (err) {
             console.log(err);
@@ -39,9 +38,9 @@ const UserPosts = (props) => {
     }
 
     const submitHandler = (event) => {
-        event.preventDefault()
-
-        history.push("/users/posts/add");
+        event.preventDefault();
+        fetchUserPost();
+        history.push("/posts");
     }
 
     return (

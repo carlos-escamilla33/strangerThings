@@ -15,12 +15,22 @@ const Profile = (props) => {
         }
     }
 
-    // useEffect(() => {
-    //     fetchUser()
-    // }, []);
+    useEffect(() => {
+        fetchUser()
+    }, []);
 
     return (
-        <h1>SetUp Profile Page</h1>
+        <>
+            <h1>SetUp Profile Page</h1>
+
+           {
+               userInfo.map(info => {
+                   return (
+                       <h1>{info.posts}</h1>
+                   )
+               })
+           }
+        </>
     )
 }
 

@@ -40,7 +40,7 @@ const App = () => {
           <Profile token={token}/>
         </Route>
         <Route path="/users/posts/add">
-          <UserPosts />
+          <UserPosts token={token}/>
         </Route>
       </Switch>
     </>
