@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router
 import "bootstrap/dist/css/bootstrap.css";
 import {
   Home,
+  Profile,
   Login,
   Navbar,
   Posts,
@@ -33,6 +34,9 @@ const App = () => {
         </Route>
         <Route path="/users/register">
           <Register setToken={setToken}/>
+        </Route>
+        <Route>
+          <Profile token={token}/>
         </Route>
       </Switch>
     </>

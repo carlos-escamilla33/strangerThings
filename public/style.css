@@ -1,11 +1,5 @@
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100vh;  
-}
 
-.blue {
-    background-color: blue;
+.btn {
+    padding: 10px;
 }

@@ -59,3 +59,19 @@ export const fetchLoginData = async (username, password) => {
     }
 }
 
+const fetchUserInfo = async (token) => {
+    try {
+        const response = await fetch(`${APIURL}/users/me`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        })
+        const result = await response.json()
+        return result;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+

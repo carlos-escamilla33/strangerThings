@@ -1,0 +1,37 @@
+.navbar-nav > li{
+    margin-left:30px;
+    margin-right:30px;
+  }  
+
+
+.btn {
+    margin: 2px;
+}
+
+.nav-spacing {
+    margin-left: 18px;
+}
+
+.container {
+    margin-top: 10%;
+    width: 50%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    margin: 5px;
+    font-size: 20px;
+}
+
+.title {
+    font-size: 55px;
+}
+
+hr {
+    margin-left: 25%;
+    margin-right: 25%;
+}

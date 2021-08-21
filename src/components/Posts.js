@@ -34,20 +34,29 @@ const Posts = (props) => {
                         </div>
                     </nav>
             }
-            {
-                posts.map(post => {
-                    return (
-                        <>
-                            <div key={post._id}>
-                                <h2>{post.title}</h2>
-                                <p>{post.description}</p>
-                                <h4>Price: {post.price}</h4>
-                                <h4>Location: {post.location}</h4>
-                            </div>
-                        </>
-                    )
-                })
-            }
+            <form>
+                <label><h1>POST</h1></label>
+                {
+                    token ? <input placeholder="Add Post"></input> : null
+                }
+                <input placeholder="Search Posts"></input>
+            </form>
+            <main>
+                {
+                    posts.map(post => {
+                        return (
+                            <>
+                                <div key={post._id}>
+                                    <h2>{post.title}</h2>
+                                    <p>{post.description}</p>
+                                    <h4>Price: {post.price}</h4>
+                                    <h4>Location: {post.location}</h4>
+                                </div>
+                            </>
+                        )
+                    })
+                }
+            </main>
         </>
     )
 }

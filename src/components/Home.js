@@ -11,7 +11,7 @@ const Home = (props) => {
                 user.length > 1  && token ? 
                 <>
                 <Navbar /> 
-                <h1>Welcome to Stranger Things</h1>
+                <h1 className="red">Welcome to Stranger Things</h1>
                 <h2>You are logged in as {user}</h2>
                 </> : 
                     history.push("/users/login")

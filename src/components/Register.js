@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchRegisterData } from "../apiCalls";
-import {Link} from "react-router-dom"
+import "./css/account.css";
 
 const Register = (props) => {
     const { setToken, setUser } = props
@@ -43,20 +43,25 @@ const Register = (props) => {
         setPassword("");
 
     }
+
+    const goBack = () => history.goBack();
+    
     return (
         <>
             <nav className="navbar navbar-dark bg-dark">
-                <div>
+                <div className="nav-spacing">
                     <h1 className="text-white">Stranger Things</h1>
-                    <Link to="/users/login">
-                        <button type="button" className="btn btn-primary">Back</button>
-                    </Link>
+                    <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={goBack}
+                    >Back</button>
                 </div>
             </nav>
-            <form onSubmit={submitHandler}>
-                <h2>Register</h2>
-                <p>Create your account. It's free and only takes a minute.</p>
-                <div>
+            <form className="container" onSubmit={submitHandler}>
+                <h2 className="center title">Register</h2>
+                <p className="center">Create your account. It's free and only takes a minute.</p>
+                <div className="center">
                     <input
                         placeholder="Username"
                         value={username}
@@ -65,7 +70,7 @@ const Register = (props) => {
                         type='text'
                         required />
                 </div>
-                <div>
+                <div className="center">
                     <input
                         placeholder="Password"
                         value={password}
@@ -74,7 +79,9 @@ const Register = (props) => {
                         type='password'
                         required />
                 </div>
-                <button type="submit" disabled={!username || !password}>Register</button>
+                <div className="center">
+                    <button type="submit" className="btn btn-lg btn-success">Register</button>
+                </div>
             </form>
         </>
     )
