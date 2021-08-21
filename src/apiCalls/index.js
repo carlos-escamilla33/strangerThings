@@ -59,7 +59,32 @@ export const fetchLoginData = async (username, password) => {
     }
 }
 
-const fetchUserInfo = async (token) => {
+export const fetchCreatedPosts = async (token, title, description, price,  willDeliver) => {
+    try {
+        const response = await fetch(`${APIURL}/posts`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            },
+            body: JSON.stringify({
+                post: {
+                    title,
+                    description,
+                    price,
+                    willDeliver
+                }
+            })
+        })
+        const result = await response.json()
+        return result.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+export const fetchUserInfo = async (token) => {
     try {
         const response = await fetch(`${APIURL}/users/me`, {
             headers: {
@@ -68,7 +93,7 @@ const fetchUserInfo = async (token) => {
             }
         })
         const result = await response.json()
-        return result;
+        return result.data;
     }
     catch (err) {
         console.log(err);
