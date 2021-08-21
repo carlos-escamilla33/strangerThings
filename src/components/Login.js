@@ -4,7 +4,7 @@ import { fetchLoginData } from "../apiCalls";
 import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
-    const { setToken,  setUser} = props;
+    const { setToken, setUser } = props;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
@@ -15,7 +15,7 @@ const Login = (props) => {
             if (response) {
                 setToken(response.token)
                 setUser(username)
-                if (response.token ) {
+                if (response.token) {
                     history.push("/")
                 }
             }
@@ -45,6 +45,11 @@ const Login = (props) => {
 
     return (
         <>
+            <nav className="navbar navbar-dark bg-dark">
+                <div>
+                    <h1 className="text-white">Stranger Things</h1>
+                </div>
+            </nav>
             <form onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <div>
@@ -67,9 +72,17 @@ const Login = (props) => {
                 </div>
                 <button type="submit" disabled={!username || !password}>Login</button>
             </form>
-            <Link to="/users/register">
-                Don't have an account? Sign Up
-            </Link>
+            <hr></hr>
+            <div>
+                <Link to="/posts">
+                    <button>Skip</button>
+                </Link>
+            </div>
+            <div>
+                <Link to="/users/register">
+                    <button>Create New Account</button>
+                </Link>
+            </div>
         </>
     )
 }

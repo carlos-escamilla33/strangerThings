@@ -7,7 +7,7 @@ import {
   Login,
   Navbar,
   Posts,
-  Register
+  Register,
 } from "./components";
 
 const App = () => {
@@ -20,16 +20,16 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar setToken={setToken} token={token}/>
       <Switch>
         <Route exact path="/">
-          <Home user={user}/>
+          <Home user={user} token={token}/>
         </Route>
         <Route path="/users/login">
           <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">
-          <Posts />
+          <Posts token={token}/>
         </Route>
         <Route path="/users/register">
           <Register setToken={setToken}/>
