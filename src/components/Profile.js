@@ -34,8 +34,8 @@ const Profile = (props) => {
                             <h2 className="card-header">Title: {post.title}</h2>
                             <div className="card-body">
                                 <blockquote className="blockquote mb-0">
-                                    <p>Price: {post.price}</p>
                                     <p>Description: {post.description}</p>
+                                    <p>Price: {post.price}</p>
                                     <p>Location: {post.location}</p>
                                 </blockquote>
                             </div>

@@ -46,24 +46,20 @@ const Posts = (props) => {
                 }
                 <input placeholder="Search Posts"></input>
             </form>
-            <main>
                 {
                     posts.map(post => {
+                        console.log(post);
                         return (
-                            <>
                                 <div key={post._id}>
-                                        <h2>{post.author.username}</h2>
-                                        <h2>{post.title}</h2>
-                                        <p>{post.description}</p>
-                                        <p>{post.createdAt}</p>
-                                        <h4>Price: {post.price}</h4>
-                                        <h4>Location: {post.location}</h4>
+                                        <h3>{post.title}</h3>
+                                        <h5>Price: {post.price}</h5>
+                                        <h5>Location: {post.location}</h5>
+                                        <p> Seller: {post.author.username}</p>
+                                        <p> Description: {post.description}</p>
                                 </div>
-                            </>
                         )
                     })
                 }
-            </main>
         </>
     )
 }

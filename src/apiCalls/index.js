@@ -69,7 +69,6 @@ export const fetchCreatedPosts = async (token, title, description, price, locati
             },
             body: JSON.stringify({
                 post: {
-                    author,
                     title,
                     description,
                     price,
