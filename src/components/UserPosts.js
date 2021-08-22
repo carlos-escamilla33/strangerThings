@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchCreatedPosts } from "../apiCalls";
-import "./css/userinfo.css";
+import "./css/style.css";
 
 const UserPosts = (props) => {
     const { token } = props;
@@ -78,7 +78,6 @@ const UserPosts = (props) => {
                 <div className="center">
                     <button className="btn btn-lg btn-primary">Create Listing</button>
                 </div>
-
             </form>
         </>
     )

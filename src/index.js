@@ -37,7 +37,7 @@ const App = () => {
           <Register setToken={setToken}/>
         </Route>
         <Route path="/profile">
-          <Profile token={token}/>
+          <Profile token={token} user={user}/>
         </Route>
         <Route path="/users/posts/add">
           <UserPosts token={token}/>

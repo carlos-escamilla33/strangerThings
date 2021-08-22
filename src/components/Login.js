@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchLoginData } from "../apiCalls";
 import { useHistory } from "react-router-dom";
-import "./css/userinfo.css";
+import "./css/style.css";
 
 const Login = (props) => {
     const { setToken, setUser } = props;
@@ -48,44 +48,44 @@ const Login = (props) => {
         <>
             <nav className="navbar navbar-dark bg-dark">
                 <div>
-                    <h1 className="text-white nav-spacing">Stranger Things</h1>
+                    <h1 className="text-white strangerTitle">Stranger Things</h1>
                 </div>
             </nav>
-                <form className="container" onSubmit={handleSubmit}>
-                    <h2 className="center title">Login</h2>
-                    <div className="center">
-                        <input
-                            placeholder=" Username"
-                            value={username}
-                            onChange={loginUsernameHandler}
-                            minLength="8"
-                            type='text'
-                            required />
-                    </div>
-                    <div className="center">
-                        <input
-                            placeholder=" Password"
-                            value={password}
-                            onChange={loginPasswordHandler}
-                            minLength="8"
-                            type='password'
-                            required />
-                    </div>
-                    <div className="center">
-                        <button type="submit" className="btn btn-lg btn-primary customBtn">Login</button>
-                    </div>
-                    <div className="center">
-                        <Link to="/posts">
-                            <button type="button" className="btn btn-lg btn-primary customBtn">Skip</button>
-                        </Link>
-                    </div>
-                    <hr></hr>
-                    <div className="center">
-                        <Link to="/users/register">
-                            <button type="button" className="btn btn-lg btn-success">Create New Account</button>
-                        </Link>
-                    </div>
-                </form>
+            <form className="container" onSubmit={handleSubmit}>
+                <h2 className="center title">Login</h2>
+                <div className="center">
+                    <input
+                        placeholder=" Username"
+                        value={username}
+                        onChange={loginUsernameHandler}
+                        minLength="8"
+                        type='text'
+                        required />
+                </div>
+                <div className="center">
+                    <input
+                        placeholder=" Password"
+                        value={password}
+                        onChange={loginPasswordHandler}
+                        minLength="8"
+                        type='password'
+                        required />
+                </div>
+                <div className="center">
+                    <button type="submit" className="btn btn-lg btn-primary customBtn">Login</button>
+                </div>
+                <div className="center">
+                    <Link to="/posts">
+                        <button type="button" className="btn btn-lg btn-primary customBtn">Skip</button>
+                    </Link>
+                </div>
+                <hr></hr>
+                <div className="center">
+                    <Link to="/users/register">
+                        <button type="button" className="btn btn-lg btn-success">Create New Account</button>
+                    </Link>
+                </div>
+            </form>
         </>
     )
 }

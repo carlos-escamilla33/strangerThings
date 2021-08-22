@@ -61,7 +61,7 @@ export const fetchLoginData = async (username, password) => {
 
 export const fetchCreatedPosts = async (token, title, description, price, location) => {
     try {
-        const response = await fetch(`${APIURL}/posts`, {
+        const response = await fetch(`${APIURL}/posts/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -69,6 +69,7 @@ export const fetchCreatedPosts = async (token, title, description, price, locati
             },
             body: JSON.stringify({
                 post: {
+                    author,
                     title,
                     description,
                     price,
@@ -86,7 +87,7 @@ export const fetchCreatedPosts = async (token, title, description, price, locati
 
 export const fetchUserInfo = async (token) => {
     try {
-        const response = await fetch(`${APIURL}/users/me`, {
+        const response = await fetch(`${APIURL}/users/me/`, {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
