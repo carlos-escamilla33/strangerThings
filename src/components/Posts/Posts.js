@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { fetchPostData } from "../apiCalls";
+import { fetchPostData } from "../../apiCalls";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar/Navbar.js"
+import Navbar from "../Navbar/Navbar.js"
 
 const Posts = (props) => {
     const { token } = props
