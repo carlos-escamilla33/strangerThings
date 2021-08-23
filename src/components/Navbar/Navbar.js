@@ -13,8 +13,7 @@ const Navbar = (props) => {
     return (
         <>
             {
-                token ? <nav className="navbar navbar-dark bg-dark">
-                <div className="container-fluid">
+                token ? <nav className="navbar d-flex justify-content-around navbar-dark bg-dark">
                     <Link style={style} to="/">
                         <h1 >Stranger Things</h1>
                     </Link>
@@ -30,7 +29,6 @@ const Navbar = (props) => {
                     <Link style={style} to="/users/login">     
                         <h4 onClick={logout} className="navbar-item">Logout</h4>
                     </Link>
-                </div>
             </nav> : null
             }
         </>
