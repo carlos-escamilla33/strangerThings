@@ -17,7 +17,7 @@ const Login = (props) => {
                 setToken(response.token)
                 setUser(username)
                 if (response.token) {
-                    history.push("/profile")
+                    history.push("/")
                 }
             }
         }

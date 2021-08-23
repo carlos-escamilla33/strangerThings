@@ -27,11 +27,11 @@ const Posts = (props) => {
             {
                 token ? <Navbar /> :
                     <nav className="navbar navbar-dark bg-dark">
-                        <div>
-                            <h1 className="text-white">Stranger Things</h1>
+                        <div className="nonUserNav">
                             <Link to="/users/login">
-                                <button type="button" className="btn btn-primary">Login/Register</button>
+                                <button type="button" className="btn btn-primary loginRegisterBtn">Login / Register</button>
                             </Link>
+                            <h1 className="text-white nonUserTitle">Stranger Things</h1>
                         </div>
                     </nav>
             }

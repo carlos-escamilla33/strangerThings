@@ -49,7 +49,7 @@ const Register = (props) => {
     return (
         <>
             <nav className="navbar navbar-dark bg-dark">
-                <div className="nav-spacing registerNav">
+                <div className="registerNav">
                     <button
                         type="button"
                         className="btn btn-primary backBtn"

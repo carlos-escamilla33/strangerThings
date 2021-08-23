@@ -10,3 +10,17 @@
     margin: 5px;
     font-size: 20px;
 }
+
+.nonUserNav {
+    margin-left: 10px;
+}
+
+.nonUserTitle {
+    display: inline;
+    margin-left: 15px;
+}
+
+.loginRegisterBtn {
+    margin-bottom: 18px;
+
+}
