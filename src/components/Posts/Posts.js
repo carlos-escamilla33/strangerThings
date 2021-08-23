@@ -35,13 +35,11 @@ const Posts = (props) => {
                         </div>
                     </nav>
             }
-            <div className="jumbotron jumbotron-fluid">
-                <div className="container">
-                    {
-                        token ? <h5 className="display-5">Post a listing or search for one!</h5>
-                            : <h3 className="display-6">Login / Register to add a listing!</h3>
-                    }
-                </div>
+            <div className="container">
+                {
+                    token ? <h5 className="display-5">Post a listing or search for one!</h5>
+                        : <h3 className="display-6">Login / Register to add a listing!</h3>
+                }
             </div>
             <form className="postsForm">
                 {

@@ -22,25 +22,25 @@ const App = () => {
 
   return (
     <>
-      <Navbar setToken={setToken} token={token}/>
+      <Navbar setToken={setToken} token={token} />
       <Switch>
         <Route exact path="/">
-          <Home user={user} token={token}/>
+          <Home user={user} token={token} />
         </Route>
         <Route path="/users/login">
           <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">
-          <Posts token={token}/>
+          <Posts token={token} />
         </Route>
         <Route path="/users/register">
-          <Register setToken={setToken}/>
+          <Register setToken={setToken} />
         </Route>
         <Route path="/profile">
-          <Profile token={token} user={user}/>
+          <Profile token={token} />
         </Route>
         <Route path="/users/posts/add">
-          <UserPosts token={token}/>
+          <UserPosts token={token} />
         </Route>
       </Switch>
     </>

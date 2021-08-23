@@ -3,7 +3,7 @@ import { fetchUserInfo } from "../../apiCalls";
 // import "./css/style.css";
 
 const Profile = (props) => {
-    const { token, user } = props
+    const { token } = props
     const [posts, setPost] = useState([]);
     const [messages, setMessages] = useState([])
 
