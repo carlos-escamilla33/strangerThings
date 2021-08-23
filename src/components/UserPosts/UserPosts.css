@@ -1,0 +1,20 @@
+
+.userPostsForm {
+    margin-top: 10%;
+    width: 50%;
+}
+
+.centerUserPost {
+    display: flex;
+    justify-content: center;
+}
+
+.userPostsInput {
+    margin: 5px;
+    font-size: 20px;
+}
+
+.listingBtn {
+    margin: 3px;
+    width: 220px;
+}
