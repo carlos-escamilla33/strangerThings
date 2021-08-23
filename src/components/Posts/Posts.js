@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchPostData } from "../../apiCalls";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js"
+import "./Posts.css";
 
 const Posts = (props) => {
     const { token } = props
@@ -26,7 +27,7 @@ const Posts = (props) => {
             {
                 token ? <Navbar /> :
                     <nav className="navbar navbar-dark bg-dark">
-                        <div className="strangerTitle">
+                        <div>
                             <h1 className="text-white">Stranger Things</h1>
                             <Link to="/users/login">
                                 <button type="button" className="btn btn-primary">Login/Register</button>
@@ -34,30 +35,40 @@ const Posts = (props) => {
                         </div>
                     </nav>
             }
-            <form>
-                <label><h1>POST</h1></label>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h5 className="display-5">Post a listing or search for one!</h5>
+                </div>
+            </div>
+            <form className="postsForm">
                 {
                     token ?
                         <Link to="/users/posts/add">
-                            <button type="submit" className="btn btn-success">Add Post</button>
+                            <button
+                                type="submit"
+                                className="btn btn-lg btn-primary"
+                            >Add Post</button>
                         </Link>
                         : null
                 }
-                <input placeholder="Search Posts"></input>
+                <input
+                    className="postsInput"
+                    placeholder="Search Posts"
+                />
             </form>
-                {
-                    posts.map(post => {
-                        return (
-                                <div key={post._id}>
-                                        <h3>{post.title}</h3>
-                                        <h5>Price: {post.price}</h5>
-                                        <h5>Location: {post.location}</h5>
-                                        <p> Seller: {post.author.username}</p>
-                                        <p> Description: {post.description}</p>
-                                </div>
-                        )
-                    })
-                }
+            {
+                posts.map(post => {
+                    return (
+                        <div className="container" key={post._id}>
+                            <h3>{post.title}</h3>
+                            <h5 className="display-7">Price: {post.price}</h5>
+                            <h5 className="display-7">Location: {post.location}</h5>
+                            <p className="lead"> Seller: {post.author.username}</p>
+                            <p className="lead"> Description: {post.description}</p>
+                        </div>
+                    )
+                })
+            }
         </>
     )
 }
