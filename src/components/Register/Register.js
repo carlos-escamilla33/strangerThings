@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, } from "react-router-dom";
 import { fetchRegisterData } from "../../apiCalls";
-// import "./css/style.css";
+import "./Register.css"
 
 const Register = (props) => {
     const { setToken } = props
@@ -58,11 +58,12 @@ const Register = (props) => {
                     >Back</button>
                 </div>
             </nav>
-            <form className="container" onSubmit={submitHandler}>
-                <h2 className="center title">Register</h2>
-                <p className="center">Create your account. It's free and only takes a minute.</p>
-                <div className="center">
+            <form className="container registerForm" onSubmit={submitHandler}>
+                <h2 className="centerRegister registerBtnTitle">Register</h2>
+                <p className="centerRegister">Create your account. It's free and only takes a minute.</p>
+                <div className="centerRegister">
                     <input
+                        className="inputRegister"
                         placeholder=" Username"
                         value={username}
                         onChange={usernameChangeHandler}
@@ -70,8 +71,9 @@ const Register = (props) => {
                         type='text'
                         required />
                 </div>
-                <div className="center">
+                <div className="centerRegister">
                     <input
+                        className="inputRegister"
                         placeholder=" Password"
                         value={password}
                         onChange={passwordChangeHandler}
@@ -79,8 +81,10 @@ const Register = (props) => {
                         type='password'
                         required />
                 </div>
-                <div className="center">
-                    <button type="submit" className="btn btn-lg btn-success">Register</button>
+                <div className="centerRegister">
+                    <button type="submit" 
+                    className="btn btn-lg btn-success registerBtn"
+                    >Register</button>
                 </div>
             </form>
         </>

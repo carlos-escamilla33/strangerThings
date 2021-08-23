@@ -1,0 +1,24 @@
+
+.registerBtnTitle {
+    font-size: 55px;
+}
+
+.centerRegister {
+    display: flex;
+    justify-content: center;
+}
+
+.inputRegister {
+    margin: 5px;
+    font-size: 20px;
+}
+
+.registerBtn {
+    width: 220px;
+    margin: 3px;
+}
+
+.registerForm {
+    margin-top: 10%;
+    width: 50%;
+}

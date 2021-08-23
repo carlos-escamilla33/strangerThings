@@ -52,7 +52,7 @@ const Login = (props) => {
                 </div>
             </nav>
             <form className="loginForm container" onSubmit={handleSubmit}>
-                <h2 className="centerLogin title">Login</h2>
+                <h2 className="centerLogin loginTitle">Login</h2>
                 <div className="centerLogin">
                     <input
                         className="loginInput"
