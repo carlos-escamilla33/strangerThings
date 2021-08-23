@@ -49,13 +49,13 @@ const Register = (props) => {
     return (
         <>
             <nav className="navbar navbar-dark bg-dark">
-                <div className="nav-spacing">
-                    <h1 className="text-white">Stranger Things</h1>
+                <div className="nav-spacing registerNav">
                     <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-primary backBtn"
                         onClick={goBack}
                     >Back</button>
+                    <h1 className="text-white strangerTitle">Stranger Things</h1>
                 </div>
             </nav>
             <form className="container registerForm" onSubmit={submitHandler}>
@@ -82,8 +82,8 @@ const Register = (props) => {
                         required />
                 </div>
                 <div className="centerRegister">
-                    <button type="submit" 
-                    className="btn btn-lg btn-success registerBtn"
+                    <button type="submit"
+                        className="btn btn-lg btn-success registerBtn"
                     >Register</button>
                 </div>
             </form>

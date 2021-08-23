@@ -1,4 +1,18 @@
 
+.registerNav {
+    margin-left: 10px;
+}
+
+.strangerTitle {
+    display: inline;
+    margin-left: 15px;
+}
+
+.backBtn {
+    margin-bottom: 18px;
+
+}
+
 .registerBtnTitle {
     font-size: 55px;
 }
