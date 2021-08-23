@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { fetchCreatedPosts } from "../apiCalls";
+import { fetchCreatedPosts } from "../../apiCalls";
 // import "./css/style.css";
 
 const UserPosts = (props) => {

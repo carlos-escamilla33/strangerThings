@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { fetchRegisterData } from "../apiCalls";
+import { fetchRegisterData } from "../../apiCalls";
 // import "./css/style.css";
 
 const Register = (props) => {
