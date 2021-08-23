@@ -1,6 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar.js"
+import Navbar from "../Navbar.js"
 import { useHistory, Link } from "react-router-dom"
+import "./Home.css"
 const Home = (props) => {
     const history = useHistory()
     const { user, token } = props;
