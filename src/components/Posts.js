@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { fetchPostData } from "../apiCalls";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar.js"
-import "./css/style.css";
 
 const Posts = (props) => {
     const { token } = props
@@ -48,7 +47,6 @@ const Posts = (props) => {
             </form>
                 {
                     posts.map(post => {
-                        console.log(post);
                         return (
                                 <div key={post._id}>
                                         <h3>{post.title}</h3>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUserInfo } from "../apiCalls";
-import "./css/style.css";
+// import "./css/style.css";
 
 const Profile = (props) => {
     const { token, user } = props

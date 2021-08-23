@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchRegisterData } from "../apiCalls";
-import "./css/style.css";
+// import "./css/style.css";
 
 const Register = (props) => {
     const { setToken } = props

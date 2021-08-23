@@ -1,0 +1,29 @@
+
+.loginForm {
+    margin-top: 10%;
+    width: 50%;
+}
+
+.navTitle {
+    margin-left: 18px;
+}
+
+.btnStyle {
+    margin: 3px;
+    width: 220px
+}
+
+.centerLogin {
+    display: flex;
+    justify-content: center;
+}
+
+.loginInput {
+    margin: 5px;
+    font-size: 20px;
+}
+
+hr {
+    margin-left: 25%;
+    margin-right: 25%;
+}

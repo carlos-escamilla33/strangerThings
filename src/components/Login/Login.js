@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchLoginData } from "../apiCalls";
+import { fetchLoginData } from "../../apiCalls";
 import { useHistory } from "react-router-dom";
-import "./css/style.css";
+import "./Login.css";
 
 const Login = (props) => {
     const { setToken, setUser } = props;
@@ -48,13 +48,14 @@ const Login = (props) => {
         <>
             <nav className="navbar navbar-dark bg-dark">
                 <div>
-                    <h1 className="text-white strangerTitle">Stranger Things</h1>
+                    <h1 className="text-white navTitle">Stranger Things</h1>
                 </div>
             </nav>
-            <form className="container" onSubmit={handleSubmit}>
-                <h2 className="center title">Login</h2>
-                <div className="center">
+            <form className="loginForm container" onSubmit={handleSubmit}>
+                <h2 className="centerLogin title">Login</h2>
+                <div className="centerLogin">
                     <input
+                        className="loginInput"
                         placeholder=" Username"
                         value={username}
                         onChange={loginUsernameHandler}
@@ -62,8 +63,9 @@ const Login = (props) => {
                         type='text'
                         required />
                 </div>
-                <div className="center">
+                <div className="centerLogin">
                     <input
+                        className="loginInput"
                         placeholder=" Password"
                         value={password}
                         onChange={loginPasswordHandler}
@@ -71,18 +73,27 @@ const Login = (props) => {
                         type='password'
                         required />
                 </div>
-                <div className="center">
-                    <button type="submit" className="btn btn-lg btn-primary customBtn">Login</button>
+                <div className="centerLogin">
+                    <button 
+                    type="submit" 
+                    className="btn btnStyle btn-lg btn-primary"
+                    >Login</button>
                 </div>
-                <div className="center">
+                <div className="centerLogin">
                     <Link to="/posts">
-                        <button type="button" className="btn btn-lg btn-primary customBtn">Skip</button>
+                        <button 
+                        type="button" 
+                        className="btn btnStyle btn-lg btn-primary"
+                        >Skip</button>
                     </Link>
                 </div>
                 <hr></hr>
-                <div className="center">
+                <div className="centerLogin">
                     <Link to="/users/register">
-                        <button type="button" className="btn btn-lg btn-success">Create New Account</button>
+                        <button 
+                        type="button" 
+                        className="btn btnStyle color btn-lg btn-success"
+                        >Create New Account</button>
                     </Link>
                 </div>
             </form>
