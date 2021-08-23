@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchUserInfo } from "../../apiCalls";
-// import "./css/style.css";
+import { fetchUserNotifs } from "../../apiCalls";
 
 const Profile = (props) => {
     const { token } = props
@@ -9,7 +8,7 @@ const Profile = (props) => {
 
     const fetchUser = async () => {
         try {
-            const response = await fetchUserInfo(token);
+            const response = await fetchUserNotifs(token);
             setPost(response.posts)
             setMessages(response.messages)
         }
@@ -23,8 +22,8 @@ const Profile = (props) => {
     }, []);
 
     return (
-        <>
-            <h1 className="center">My Posts:</h1>
+        <div className="container">
+            <h1 className="text-center">My Posts:</h1>
 
 
             {
@@ -46,7 +45,7 @@ const Profile = (props) => {
                 <h3>No posts yet...</h3>
             }
 
-            <h1 className="center">My Messages:</h1>
+            <h1 className="text-center">Messages Recieved :</h1>
 
             {
                 messages ? messages.map(message => {
@@ -58,7 +57,6 @@ const Profile = (props) => {
                                     <p>From: {message.fromUser.username}</p>
                                     <p>Content: {message.content}</p>
                                 </blockquote>
-                                <button type="submit" className="btn btn-primary">Reply</button>
                             </div>
                         </div>
                     )
@@ -66,7 +64,7 @@ const Profile = (props) => {
                 :
                 <h3>No Messages yet...</h3>
             }
-        </>
+        </div>
     )
 }
 

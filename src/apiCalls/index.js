@@ -84,7 +84,7 @@ export const fetchCreatedPosts = async (token, title, description, price, locati
     }
 }
 
-export const fetchUserInfo = async (token) => {
+export const fetchUserNotifs = async (token) => {
     try {
         const response = await fetch(`${APIURL}/users/me/`, {
             headers: {
@@ -97,6 +97,29 @@ export const fetchUserInfo = async (token) => {
     }
     catch (err) {
         console.log(err);
+    }
+}
+
+export const fetchSendMessage = async (POST_ID, token) => {
+    try {
+        const response = await fetch(`${APIURL}/posts/${POST_ID}/messages/`, {
+           method: "POST",
+           headers: {
+               "Content-Type": "application/json",
+               "Authorization": `Bearer ${token}`
+           },
+           body: JSON.stringify({
+               message: {
+                   content
+               }
+           }) 
+        });
+        const result = await response.json()
+        return result.data.message
+
+    }
+    catch (err) {
+        console.log(err)
     }
 }
 
