@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUserNotifs } from "../../apiCalls";
+import "./Profile.css";
 
 const Profile = (props) => {
     const { token } = props
@@ -23,13 +24,13 @@ const Profile = (props) => {
 
     return (
         <div className="container">
-            <h1 className="text-center">My Posts:</h1>
+            <h1 className="text-center display-3">My Posts:</h1>
 
 
             {
                 posts ? posts.map(post => {
                     return (
-                        <div className="card" key={post._id}>
+                        <div className="card postSpacing" key={post._id}>
                             <h2 className="card-header">Title: {post.title}</h2>
                             <div className="card-body">
                                 <blockquote className="blockquote mb-0">
@@ -45,12 +46,12 @@ const Profile = (props) => {
                 <h3>No posts yet...</h3>
             }
 
-            <h1 className="text-center">Messages Recieved :</h1>
+            <h1 className="text-center display-3">Messages Recieved :</h1>
 
             {
                 messages ? messages.map(message => {
                     return (
-                        <div className="card" key={message._id}>
+                        <div className="card postSpacing" key={message._id}>
                             <h2 className="card-header">Your Listing: {message.post.title}</h2>
                             <div className="card-body">
                                 <blockquote className="blockquote mb-0">
@@ -62,7 +63,7 @@ const Profile = (props) => {
                     )
                 })
                 :
-                <h3>No Messages yet...</h3>
+                <h3>No User info yet...</h3>
             }
         </div>
     )
