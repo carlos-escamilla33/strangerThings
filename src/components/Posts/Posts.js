@@ -5,8 +5,7 @@ import Navbar from "../Navbar/Navbar.js"
 import "./Posts.css";
 
 const Posts = (props) => {
-    const { token, user } = props
-    const [posts, setPosts] = useState([]);
+    const { token, user, setPosts, posts } = props
 
     const fetchPosts = async () => {
         try {
@@ -28,7 +27,6 @@ const Posts = (props) => {
                 } 
             })
             const result = await response.json();
-            console.log(result);
             await fetchPosts()
             return result
         }

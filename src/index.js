@@ -15,6 +15,7 @@ import {
 const App = () => {
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
+  const [posts, setPosts] = useState([]);
 
   console.log(token);
 
@@ -31,7 +32,7 @@ const App = () => {
           <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">
-          <Posts token={token} user={user}/>
+          <Posts token={token} user={user} posts={posts} setPosts={setPosts}/>
         </Route>
         <Route path="/users/register">
           <Register setToken={setToken} />
@@ -40,7 +41,7 @@ const App = () => {
           <Profile token={token} />
         </Route>
         <Route path="/users/posts/add">
-          <UserPosts token={token} />
+          <UserPosts token={token} setPosts={setPosts}/>
         </Route>
       </Switch>
     </>

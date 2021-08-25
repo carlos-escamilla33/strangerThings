@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { fetchCreatedPosts, fetchPostData } from "../../apiCalls";
 import "./UserPosts.css";
 
 const UserPosts = (props) => {
-    const { token } = props;
+    const { token, setPosts } = props;
     const history = useHistory();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [location, setLocation] = useState("");
+
+    const refetchPosts = async () => {
+        try {
+            const res = await fetchPostData()
+            setPosts(res);
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     const fetchUserPost = async () => {
         try {
@@ -38,9 +48,13 @@ const UserPosts = (props) => {
         setLocation(event.target.value)
     }
 
+    useEffect(() => {
+        refetchPosts()
+    }, [])
+
     const submitHandler = (event) => {
         event.preventDefault();
-        fetchUserPost();
+        fetchUserPost()
         history.push("/posts");
     }
 
