@@ -103,16 +103,16 @@ export const fetchUserNotifs = async (token) => {
 export const fetchSendMessage = async (POST_ID, token) => {
     try {
         const response = await fetch(`${APIURL}/posts/${POST_ID}/messages/`, {
-           method: "POST",
-           headers: {
-               "Content-Type": "application/json",
-               "Authorization": `Bearer ${token}`
-           },
-           body: JSON.stringify({
-               message: {
-                   content
-               }
-           }) 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                message: {
+                    content
+                }
+            })
         });
         const result = await response.json()
         return result.data.message
@@ -123,3 +123,19 @@ export const fetchSendMessage = async (POST_ID, token) => {
     }
 }
 
+export const fetchDelete = async ([post_id, token]) => {
+    try {
+        const response = await fetch(`${APIURL}/posts/${post_id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            } 
+        })
+        const result = response.json();
+        return result
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

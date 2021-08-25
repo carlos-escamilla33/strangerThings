@@ -5,13 +5,32 @@ import Navbar from "../Navbar/Navbar.js"
 import "./Posts.css";
 
 const Posts = (props) => {
-    const { token } = props
+    const { token, user } = props
     const [posts, setPosts] = useState([]);
 
     const fetchPosts = async () => {
         try {
             const res = await fetchPostData()
             setPosts(res);
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    const deleteHandler = async (post_id) => {
+        try {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT/posts/${post_id}/`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                } 
+            })
+            const result = await response.json();
+            console.log(result);
+            await fetchPosts()
+            return result
         }
         catch (err) {
             console.log(err)
@@ -66,6 +85,15 @@ const Posts = (props) => {
                             <h5 className="display-7">Location: {post.location}</h5>
                             <p className="lead"> Seller: {post.author.username}</p>
                             <p className="lead"> Description: {post.description}</p>
+                            {
+                                token && post.author.username === user ? 
+                                <button
+                                type="submit"
+                                onClick={() => deleteHandler(post._id)} 
+                                className="btn btn btn-danger"
+                                >Delete</button>
+                                : null
+                            }
                         </div>
                     )
                 })

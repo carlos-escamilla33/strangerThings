@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { fetchCreatedPosts } from "../../apiCalls";
+import { fetchCreatedPosts, fetchPostData } from "../../apiCalls";
 import "./UserPosts.css";
 
 const UserPosts = (props) => {
@@ -14,6 +14,7 @@ const UserPosts = (props) => {
     const fetchUserPost = async () => {
         try {
             const response = await fetchCreatedPosts(token, title, description, price, location);
+            await fetchPosts()
             return response
         }
         catch (err) {

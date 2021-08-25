@@ -31,7 +31,7 @@ const App = () => {
           <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">
-          <Posts token={token} />
+          <Posts token={token} user={user}/>
         </Route>
         <Route path="/users/register">
           <Register setToken={setToken} />
