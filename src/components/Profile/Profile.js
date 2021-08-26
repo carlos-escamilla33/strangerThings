@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchUserNotifs } from "../../apiCalls";
+import { fetchUserNotifs, callApi } from "../../apiCalls";
 import "./Profile.css";
 
 const Profile = (props) => {
@@ -9,9 +9,12 @@ const Profile = (props) => {
 
     const fetchUser = async () => {
         try {
-            const response = await fetchUserNotifs(token);
-            setPost(response.posts)
-            setMessages(response.messages)
+            const resp = await callApi({
+                url: "/users/me",
+                token
+            });
+            setPost(resp.data.posts)
+            setMessages(resp.data.messages)
         }
         catch (err) {
             console.log(err)
