@@ -26,49 +26,47 @@ const Profile = (props) => {
     }, []);
 
     return (
-        <div className="container">
-            <h1 className="text-center display-3">My Posts:</h1>
 
+        messages.length !== 0 ?
+            <div className="container">
+                <h1 className="text-center display-3">My Posts:</h1>
 
-            {
-                posts ? posts.map(post => {
-                    return (
-                        <div className="card postSpacing" key={post._id}>
-                            <h2 className="card-header">Title: {post.title}</h2>
-                            <div className="card-body">
-                                <blockquote className="blockquote mb-0">
-                                    <p>Description: {post.description}</p>
-                                    <p>Price: {post.price}</p>
-                                    <p>Location: {post.location}</p>
-                                </blockquote>
+                {
+                    posts.map(post => {
+                        return (
+                            <div className="card postSpacing" key={post._id}>
+                                <h2 className="card-header">Title: {post.title}</h2>
+                                <div className="card-body">
+                                    <blockquote className="blockquote mb-0">
+                                        <p>Description: {post.description}</p>
+                                        <p>Price: {post.price}</p>
+                                        <p>Location: {post.location}</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    )
-                }) 
-                :
-                <h3>No posts yet...</h3>
-            }
+                        )
+                    })
+                }
 
-            <h1 className="text-center display-3">Messages Recieved :</h1>
+                <h1 className="text-center display-3">Messages Recieved :</h1>
 
-            {
-                messages ? messages.map(message => {
-                    return (
-                        <div className="card postSpacing" key={message._id}>
-                            <h2 className="card-header">Your Listing: {message.post.title}</h2>
-                            <div className="card-body">
-                                <blockquote className="blockquote mb-0">
-                                    <p>From: {message.fromUser.username}</p>
-                                    <p>Content: {message.content}</p>
-                                </blockquote>
+                {
+                    messages.map(message => {
+                        return (
+                            <div className="card postSpacing" key={message._id}>
+                                <h2 className="card-header">Your Listing: {message.post.title}</h2>
+                                <div className="card-body">
+                                    <blockquote className="blockquote mb-0">
+                                        <p>From: {message.fromUser.username}</p>
+                                        <p>Content: {message.content}</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-                :
-                <h3>No User info yet...</h3>
-            }
-        </div>
+                        )
+                    })
+                }
+            </div> : <h2>No user data yet...</h2>
+        
     )
 }
 
