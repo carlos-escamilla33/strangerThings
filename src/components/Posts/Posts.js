@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { callApi } from "../../apiCalls";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js"
+import Message from "../Message/Message.js"
 import "./Posts.css";
 
 const Posts = (props) => {
@@ -93,6 +94,12 @@ const Posts = (props) => {
                                 >Delete</button>
                                 : null
                             }
+                            <Message 
+                            token={token} 
+                            post_id={post._id}
+                            user={user}
+                            author={post.author.username}
+                            />
                         </div>
                     )
                 })
