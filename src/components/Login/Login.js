@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchLoginData } from "../../apiCalls";
+import { callApi } from "../../apiCalls";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
 
@@ -12,11 +12,21 @@ const Login = (props) => {
 
     const fetchDataLogin = async () => {
         try {
-            const response = await fetchLoginData(username, password);
-            if (response) {
-                setToken(response.token)
+            const resp = await callApi({
+                url: "/users/login/",
+                method: "POST",
+                body: {
+                    user: {
+                        username,
+                        password
+                    }
+                }
+            })
+            console.log(resp)
+            if (resp) {
+                setToken(resp.data.token)
                 setUser(username)
-                if (response.token) {
+                if (resp.data.token) {
                     history.push("/")
                 }
             }
