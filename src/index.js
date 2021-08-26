@@ -28,7 +28,7 @@ const App = () => {
         <Route exact path="/">
           <Home user={user} token={token} />
         </Route>
-        <Route path="/users/login">
+        <Route exact path="/users/login">
           <Login setToken={setToken} setUser={setUser} />
         </Route>
         <Route path="/posts">

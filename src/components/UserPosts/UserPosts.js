@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { fetchCreatedPosts, fetchPostData } from "../../apiCalls";
+import { callApi } from "../../apiCalls";
 import "./UserPosts.css";
 
 const UserPosts = (props) => {
@@ -13,18 +13,31 @@ const UserPosts = (props) => {
 
     const refetchPosts = async () => {
         try {
-            const res = await fetchPostData()
-            setPosts(res);
+            const res = await callApi({
+                url: "/posts",
+            })
+            setPosts(res.data.posts);
         }
         catch (err) {
             console.log(err)
         }
     }
-
     const fetchUserPost = async () => {
         try {
-            const response = await fetchCreatedPosts(token, title, description, price, location);
-            await fetchPosts()
+            const response = await callApi({
+                url: "/posts",
+                method: "POST",
+                token,
+                body: {
+                    post: {
+                        title,
+                        description,
+                        price,
+                        location
+                    }
+                }
+            });
+            await refetchPosts()
             return response
         }
         catch (err) {
@@ -54,6 +67,7 @@ const UserPosts = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+        refetchPosts()
         fetchUserPost()
         history.push("/posts");
     }
@@ -63,36 +77,36 @@ const UserPosts = (props) => {
             <form className="container userPostsForm" onSubmit={submitHandler}>
                 <h2 className="centerUserPost">Tell us what you're selling</h2>
                 <div className="centerUserPost">
-                    <input 
-                    className="userPostsInput"
-                    placeholder=" Title"
-                    value={title}
-                    onChange={titleChangeHandler}
+                    <input
+                        className="userPostsInput"
+                        placeholder=" Title"
+                        value={title}
+                        onChange={titleChangeHandler}
                     />
                 </div>
                 <div className="centerUserPost">
-                    <input 
-                    className="userPostsInput"
-                    placeholder=" Description"
-                    value={description}
-                    onChange={descriptionChangeHandler}
+                    <input
+                        className="userPostsInput"
+                        placeholder=" Description"
+                        value={description}
+                        onChange={descriptionChangeHandler}
                     />
                 </div>
                 <div className="centerUserPost">
-                    <input 
-                    className="userPostsInput"
-                    placeholder=" Price"
-                    value={price}
-                    onChange={priceChangeHandler}
-                     />
+                    <input
+                        className="userPostsInput"
+                        placeholder=" Price"
+                        value={price}
+                        onChange={priceChangeHandler}
+                    />
                 </div>
                 <div className="centerUserPost">
-                    <input 
-                    className="userPostsInput"
-                    placeholder=" Location"
-                    value={location}
-                    onChange={locationChangeHandler}
-                     />
+                    <input
+                        className="userPostsInput"
+                        placeholder=" Location"
+                        value={location}
+                        onChange={locationChangeHandler}
+                    />
                 </div>
                 <div className="centerUserPost">
                     <button className="btn btn-lg btn-primary listingBtn">Create Listing</button>

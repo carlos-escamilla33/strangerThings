@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchPostData } from "../../apiCalls";
+import { callApi } from "../../apiCalls";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar.js"
 import "./Posts.css";
@@ -9,29 +9,30 @@ const Posts = (props) => {
 
     const fetchPosts = async () => {
         try {
-            const res = await fetchPostData()
-            setPosts(res);
+            const res = await callApi({
+                url: "/posts",
+            })
+            console.log(res.data.posts)
+            setPosts(res.data.posts);
         }
         catch (err) {
             console.log(err)
         }
     }
 
+
     const deleteHandler = async (post_id) => {
         try {
-            const response = await fetch(`https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT/posts/${post_id}/`, {
+            const resp = await callApi({
+                url: `/posts/${post_id}`,
                 method: "DELETE",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                } 
+                token
             })
-            const result = await response.json();
             await fetchPosts()
-            return result
+            return resp;
         }
         catch (err) {
-            console.log(err)
+            console.log(err);
         }
     }
 

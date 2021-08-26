@@ -3,6 +3,29 @@ const cohortName = '2105-SJS-RM-WEB-PT';
 // Use the APIURL variable for fetch requests
 const APIURL = `https://strangers-things.herokuapp.com/api/${cohortName}/`;
 
+export const callApi = async ({ url, method, token, body }) => {
+    try {
+        const options = {
+            method: method ? method.toUpperCase() : "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(body)
+        };
+        if (token) options.headers["Authorization"] = `Bearer ${token}`;
+
+        const response = await fetch(`${APIURL}${url}`, options);
+        const result = await response.json();
+        if (result.error) {
+            throw (result.error)
+        }
+        return result
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
 export const fetchPostData = async () => {
     try {
         const response = await fetch(`${APIURL}/posts`)
@@ -59,7 +82,7 @@ export const fetchLoginData = async (username, password) => {
     }
 }
 
-export const fetchCreatedPosts = async (token, title, description, price, location) => {
+export const fetchCreatedPosts = async ({token, title, description, price, location}) => {
     try {
         const response = await fetch(`${APIURL}/posts/`, {
             method: "POST",
@@ -100,7 +123,7 @@ export const fetchUserNotifs = async (token) => {
     }
 }
 
-export const fetchSendMessage = async (POST_ID, token) => {
+export const fetchSendMessage = async ({POST_ID, token}) => {
     try {
         const response = await fetch(`${APIURL}/posts/${POST_ID}/messages/`, {
             method: "POST",
@@ -123,19 +146,3 @@ export const fetchSendMessage = async (POST_ID, token) => {
     }
 }
 
-export const fetchDelete = async ([post_id, token]) => {
-    try {
-        const response = await fetch(`${APIURL}/posts/${post_id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            } 
-        })
-        const result = response.json();
-        return result
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
