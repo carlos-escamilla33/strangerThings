@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, } from "react-router-dom";
-import { fetchRegisterData } from "../../apiCalls";
+import { callApi } from "../../apiCalls";
 import "./Register.css"
 
 const Register = (props) => {
@@ -9,6 +9,30 @@ const Register = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const registerUser = async () => {
+        try {
+            const resp = await callApi({
+                url: "/users/register/",
+                method: "POST",
+                body: {
+                    user: {
+                        username,
+                        password
+                    }
+                }
+            });
+            if (resp) {
+                setToken(resp.data.token)
+                if (resp.data.token) {
+                    setToken("")
+                    history.push("/users/login")
+                }
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     const usernameChangeHandler = (event) => {
         setUsername(event.target.value)
@@ -21,21 +45,6 @@ const Register = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-
-        const registerUser = async () => {
-            try {
-                const response = await fetchRegisterData(username, password);
-                if (response) {
-                    setToken(response.token)
-                    if (response.token) {
-                        history.push("/users/login")
-                    }
-                }
-            }
-            catch (err) {
-                console.log(err)
-            }
-        }
 
         registerUser();
 
