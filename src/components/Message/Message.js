@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "../Navbar/Navbar.js"
 import { callApi } from "../../apiCalls";
 
 const Message = (props) => {
-    const { token, post_id, author, user } = props;
+    const { token, postId, author, user } = props;
+    const [show, setShow] = useState(false)
 
-    const fetchCreateMsg = async () => {
+    const fetchCreateMsg = async (post_id) => {
         try {
             const resp = callApi({
                 url: `/posts/${post_id}/messages`,
@@ -24,12 +25,19 @@ const Message = (props) => {
         }
     }
 
+
+    const submitHandler = (event) => {
+        fetchCreateMsg(postId)
+        event.preventDefault()
+    }
+
     return (
-        token && author !== user ? 
-        <form>
-            <p>Form here</p>
-        </form> :
-        null
+        token && author !== user ?
+            <>
+                <button onClick={()=> setShow(true)}>Message</button>
+            </>
+            :
+            <h1>Loading...</h1>
     )
 }
 

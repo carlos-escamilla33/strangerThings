@@ -21,7 +21,6 @@ const Posts = (props) => {
         }
     }
 
-
     const deleteHandler = async (post_id) => {
         try {
             const resp = await callApi({
@@ -95,10 +94,10 @@ const Posts = (props) => {
                                 : null
                             }
                             <Message 
-                            token={token} 
-                            post_id={post._id}
-                            user={user}
+                            postId={post._id}
                             author={post.author.username}
+                            token={token}
+                            user={user}
                             />
                         </div>
                     )
