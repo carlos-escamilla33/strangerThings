@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { callApi } from "../../apiCalls";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar.js"
-import Message from "../Message/Message.js"
+import Navbar from "../Navbar/Navbar.js";
+import Message from "../Message/Message.js";
+import SearchTerm from "../SearchTerm/SearchTerm.js";
 import "./Posts.css";
 
 const Posts = (props) => {
-    const { token, user, setPosts, posts } = props
+    const { token, user, setPosts, posts } = props;
 
     const fetchPosts = async () => {
         try {
@@ -62,18 +63,20 @@ const Posts = (props) => {
             <form className="postsForm">
                 {
                     token ?
-                        <Link to="/users/posts/add">
-                            <button
-                                type="submit"
-                                className="btn btn-lg btn-primary"
-                            >Add Post</button>
-                        </Link>
+                        <>
+                            <Link to="/users/posts/add">
+                                <button
+                                    type="submit"
+                                    className="btn btn-lg btn-primary"
+                                >Add Post</button>
+                            </Link>
+                            <SearchTerm
+                                posts={posts}
+                                setPosts={setPosts}
+                            />
+                        </>
                         : null
                 }
-                <input
-                    className="postsInput"
-                    placeholder="Search Posts"
-                />
             </form>
             {
                 posts.map(post => {
@@ -93,12 +96,12 @@ const Posts = (props) => {
                                     >Delete</button>
                                     : null
                             }
-                           <Message 
-                           postId={post._id} 
-                           token={token} 
-                           author={post.author.username}
-                           user={user}
-                           />
+                            <Message
+                                postId={post._id}
+                                token={token}
+                                author={post.author.username}
+                                user={user}
+                            />
                         </div>
                     )
                 })
