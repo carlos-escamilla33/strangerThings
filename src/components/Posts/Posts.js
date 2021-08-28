@@ -85,20 +85,20 @@ const Posts = (props) => {
                             <p className="lead"> Seller: {post.author.username}</p>
                             <p className="lead"> Description: {post.description}</p>
                             {
-                                token && post.author.username === user ? 
-                                <button
-                                type="submit"
-                                onClick={() => deleteHandler(post._id)} 
-                                className="btn btn btn-danger"
-                                >Delete</button>
-                                : null
+                                token && post.author.username === user ?
+                                    <button
+                                        type="submit"
+                                        onClick={() => deleteHandler(post._id)}
+                                        className="btn btn btn-danger"
+                                    >Delete</button>
+                                    : null
                             }
-                            <Message 
-                            postId={post._id}
-                            author={post.author.username}
-                            token={token}
-                            user={user}
-                            />
+                           <Message 
+                           post_id={post._id} 
+                           token={token} 
+                           author={post.author.username}
+                           user={user}
+                           />
                         </div>
                     )
                 })

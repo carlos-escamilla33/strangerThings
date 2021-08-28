@@ -9,7 +9,7 @@ import {
   Login,
   Navbar,
   Posts,
-  Register,
+  Register
 } from "./components";
 
 const App = () => {

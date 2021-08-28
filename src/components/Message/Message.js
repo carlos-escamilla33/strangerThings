@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom"
 import Navbar from "../Navbar/Navbar.js"
 import { callApi } from "../../apiCalls";
 
 const Message = (props) => {
     const { token, postId, author, user } = props;
-    const [show, setShow] = useState(false)
+    const [textArea, setTextArea] = useState("")
 
     const fetchCreateMsg = async (post_id) => {
         try {
@@ -25,19 +26,33 @@ const Message = (props) => {
         }
     }
 
+    const textAreaHandler = (event) => {
+        setTextArea(event.target.value)
+    }
 
     const submitHandler = (event) => {
-        fetchCreateMsg(postId)
         event.preventDefault()
+        // fetchCreateMsg(postId)
+        console.log(textArea)
+        setTextArea("")
     }
 
     return (
-        token && author !== user ?
-            <>
-                <button onClick={()=> setShow(true)}>Message</button>
-            </>
-            :
-            <h1>Loading...</h1>
+        token && author !== user ? 
+        <form onSubmit={submitHandler}>
+            <textarea 
+            placeholder=" enter message here" 
+            value={textArea} 
+            onChange={textAreaHandler}
+            autoFocus
+             />
+            <br />
+            {
+                textArea.length > 1 ? <button className="btn btn-lg btn-success">send message</button> : null
+            }
+        </form>
+        :
+        null
     )
 }
 
