@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { fetchUserNotifs, callApi } from "../../apiCalls";
+import { callApi } from "../../apiCalls";
 import "./Profile.css";
 
 const Profile = (props) => {
-    const { token } = props
+    const { token, user } = props
     const [posts, setPost] = useState([]);
     const [messages, setMessages] = useState([])
 
@@ -48,25 +48,36 @@ const Profile = (props) => {
                     })
                 }
 
-                <h1 className="text-center display-3">Messages Recieved :</h1>
+                <h1 className="text-center display-3">Messages:</h1>
 
                 {
                     messages.map(message => {
                         return (
-                            <div className="card postSpacing" key={message._id}>
-                                <h2 className="card-header">Your Listing: {message.post.title}</h2>
-                                <div className="card-body">
-                                    <blockquote className="blockquote mb-0">
-                                        <p>From: {message.fromUser.username}</p>
-                                        <p>Content: {message.content}</p>
-                                    </blockquote>
+                             message.fromUser.username !== user ?
+                                <div className="card postSpacing" key={message._id}>
+                                    <h2 className="card-header">from: {message.fromUser.username}</h2>
+                                    <div className="card-body">
+                                        <blockquote className="blockquote mb-0">
+                                            <p>Your Listing: {message.post.title}</p>
+                                            <p>Content: {message.content}</p>
+                                        </blockquote>
+                                    </div>
+                                </div> 
+                                : 
+                                <div className="card postSpacing" key={message._id}>
+                                    <h2 className="card-header">(sent by me)</h2>
+                                    <div className="card-body">
+                                        <blockquote className="blockquote mb-0">
+                                            <p>{message.post.title}</p>
+                                            <p>Content: {message.content}</p>
+                                        </blockquote>
+                                    </div>
                                 </div>
-                            </div>
                         )
                     })
                 }
             </div> : <h2>No user data yet...</h2>
-        
+
     )
 }
 

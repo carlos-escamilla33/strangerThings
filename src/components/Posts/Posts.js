@@ -94,7 +94,7 @@ const Posts = (props) => {
                                     : null
                             }
                            <Message 
-                           post_id={post._id} 
+                           postId={post._id} 
                            token={token} 
                            author={post.author.username}
                            user={user}
