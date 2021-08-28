@@ -1,0 +1,13 @@
+
+button.send {
+    margin: 15px;
+}
+
+div.form-group {
+    border: solid 0.5px;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+ }

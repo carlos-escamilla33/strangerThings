@@ -34,7 +34,7 @@ const Profile = (props) => {
                 {
                     posts.map(post => {
                         return (
-                            <div className="card postSpacing" key={post._id}>
+                            <div className="card text-center postSpacing" key={post._id}>
                                 <h2 className="card-header">Title: {post.title}</h2>
                                 <div className="card-body">
                                     <blockquote className="blockquote mb-0">
@@ -54,7 +54,7 @@ const Profile = (props) => {
                     messages.map(message => {
                         return (
                              message.fromUser.username !== user ?
-                                <div className="card postSpacing" key={message._id}>
+                                <div className="card text-center postSpacing" key={message._id}>
                                     <h2 className="card-header">from: {message.fromUser.username}</h2>
                                     <div className="card-body">
                                         <blockquote className="blockquote mb-0">
@@ -64,7 +64,7 @@ const Profile = (props) => {
                                     </div>
                                 </div> 
                                 : 
-                                <div className="card postSpacing" key={message._id}>
+                                <div className="card text-center postSpacing" key={message._id}>
                                     <h2 className="card-header">(sent by me)</h2>
                                     <div className="card-body">
                                         <blockquote className="blockquote mb-0">
@@ -76,8 +76,7 @@ const Profile = (props) => {
                         )
                     })
                 }
-            </div> : <h2>No user data yet...</h2>
-
+            </div> : <h2 className="display-1 container">No user data yet...</h2>
     )
 }
 

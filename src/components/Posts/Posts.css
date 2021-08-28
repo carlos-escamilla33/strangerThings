@@ -6,6 +6,11 @@
     margin-top: 10px;
 }
 
+div.centerTitle {
+    display: flex;
+    justify-content: center;
+}
+
 .postsInput {
     margin: 5px;
     font-size: 20px;
@@ -24,7 +29,6 @@
     margin-bottom: 18px;
 }
 
-.searchInput {
-    margin: 5px;
-    font-size: 20px;
+button.add {
+    width: 220px;
 }

@@ -1,1 +1,29 @@
 
+input.searchInput {
+    font-size: 22px;
+    border-radius: 5px;
+    border: solid 1px;
+}
+
+.centerSearchBar {
+    display: flex;
+    justify-content: center;
+}
+
+div.card {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+hr {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.spacing {
+    margin-bottom: 20px;
+}
+
+.delete {
+    width: 220px;
+}

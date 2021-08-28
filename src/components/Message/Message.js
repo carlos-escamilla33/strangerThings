@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { callApi } from "../../apiCalls";
+import "./Message.css";
 
 const Message = (props) => {
     const { token, postId, author, user } = props;
@@ -41,7 +42,7 @@ const Message = (props) => {
                 <div className="form-group">
                     <textarea
                         className="form-control"
-                        placeholder=" send message to seller"
+                        placeholder=" send message to seller textArea"
                         value={content}
                         onChange={textAreaHandler}
                     />
@@ -49,7 +50,7 @@ const Message = (props) => {
                 {
                     content.length > 1 ?
                         <button
-                            className="btn btn-lg btn-success">send message</button>
+                            className="btn btn-lg btn-success send">send message</button>
                         : null
                 }
             </form>

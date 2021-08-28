@@ -7,17 +7,6 @@ import "./Posts.css";
 
 const Posts = (props) => {
     const { token, user, setPosts, posts } = props;
-    const [searchTerm, setSearchTerm] = useState("");
-    
-    const postMatches = (post, text) => post.includes(text)
-
-    const filteredPosts = posts.filter(post => postMatches(post.title.toLowerCase(), searchTerm));
-
-    const postToDisplay = searchTerm.length ? filteredPosts : posts;
-
-    const inputHandler = (event) => {
-        setSearchTerm(event.target.value)
-    }
 
     const fetchPosts = async () => {
         try {
@@ -64,9 +53,9 @@ const Posts = (props) => {
                         </div>
                     </nav>
             }
-            <div className="container">
+            <div className="container centerTitle">
                 {
-                    token ? <h5 className="display-5">Post a listing or search for one!</h5>
+                    token ? <h3 className="display-5">Post a listing or search for one!</h3>
                         : <h3 className="display-6">Login / Register to add a listing!</h3>
                 }
             </div>
@@ -77,22 +66,19 @@ const Posts = (props) => {
                             <Link to="/users/posts/add">
                                 <button
                                     type="submit"
-                                    className="btn btn-lg btn-primary"
+                                    className="btn btn-lg btn-primary add"
                                 >Add Post</button>
                             </Link>
-                        </form>
-                        <form>
-                            <input
-                                onChange={inputHandler}
-                                value={searchTerm.toLowerCase()}
-                                className="searchInput"
-                                placeholder="search post"
-                            />
                         </form>
                     </>
                     : null
             }
-            <PostResults postToDisplay={postToDisplay} deleteHandler={deleteHandler} user={user} token={token}/>
+            <PostResults
+                posts={posts}
+                deleteHandler={deleteHandler}
+                user={user}
+                token={token} 
+            />
         </>
     )
 }
