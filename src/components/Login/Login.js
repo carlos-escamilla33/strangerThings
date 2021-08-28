@@ -22,7 +22,6 @@ const Login = (props) => {
                     }
                 }
             })
-            console.log(resp)
             if (resp) {
                 setToken(resp.data.token)
                 setUser(username)

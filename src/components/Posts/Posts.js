@@ -13,7 +13,6 @@ const Posts = (props) => {
             const res = await callApi({
                 url: "/posts",
             })
-            console.log(res.data.posts)
             setPosts(res.data.posts);
         }
         catch (err) {

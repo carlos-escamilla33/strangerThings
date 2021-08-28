@@ -18,7 +18,6 @@ const Message = (props) => {
                     }
                 }
             })
-            console.log(resp)
             return resp
         }
         catch (error) {

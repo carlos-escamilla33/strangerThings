@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.css";
 import {
   Home,
@@ -16,8 +16,6 @@ const App = () => {
   const [token, setToken] = useState("");
   const [user, setUser] = useState("");
   const [posts, setPosts] = useState([]);
-
-  console.log(user);
 
   return (
     <>

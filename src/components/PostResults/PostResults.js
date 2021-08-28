@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Message from "../Message/Message.js";
+import Edit from "../Edit/Edit.js";
 import "./PostResults.css";
 
 const PostResults = (props) => {
@@ -41,11 +42,19 @@ const PostResults = (props) => {
                                 <p className="lead"> Description: {post.description}</p>
                                 {
                                     token && post.author.username === user ?
-                                        <button
-                                            type="submit"
-                                            onClick={() => deleteHandler(post._id)}
-                                            className="btn btn btn-danger delete"
-                                        >Delete</button>
+                                        <>
+                                            <button
+                                                type="submit"
+                                                onClick={() => deleteHandler(post._id)}
+                                                className="btn btn btn-danger delete"
+                                            >Delete</button>
+                                            {/* <Link>
+                                                <button
+                                                    className="btn btn-secondary edit">
+                                                    Edit
+                                                </button>
+                                            </Link> */}
+                                        </>
                                         : null
                                 }
                                 <Message
