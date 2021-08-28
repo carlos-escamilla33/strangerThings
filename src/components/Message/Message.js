@@ -41,7 +41,7 @@ const Message = (props) => {
                 <div className="form-group">
                     <textarea
                         className="form-control"
-                        placeholder=" send message to seller textArea"
+                        placeholder={` send message to ${author}`}
                         value={content}
                         onChange={textAreaHandler}
                     />
