@@ -55,7 +55,7 @@ const Profile = (props) => {
                 {
                     messages.map(message => {
                         return (
-                            message.fromUser.username !== user ?
+                            message.fromUser.username === user ?
                                 <div className="card text-center border-primary postSpacing" key={message._id}>
                                     <h2 className="card-header">(sent by me)</h2>
                                     <div className="card-body">
