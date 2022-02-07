@@ -1,5 +1,5 @@
 // Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
-const cohortName = '2105-SJS-RM-WEB-PT';
+const cohortName = process.env.REACT_APP_COHORT_NAME
 // Use the APIURL variable for fetch requests
 const APIURL = `https://strangers-things.herokuapp.com/api/${cohortName}/`;
 
