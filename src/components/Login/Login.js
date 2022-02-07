@@ -6,8 +6,9 @@ import "./Login.css";
 
 const Login = (props) => {
     const { setToken, setUser } = props;
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [loginMessage, setLoginMessage] = useState("");
     const history = useHistory();
 
     const fetchDataLogin = async () => {
@@ -50,6 +51,7 @@ const Login = (props) => {
 
         setUsername("");
         setPassword("");
+        setLoginMessage("");
     }
 
 
@@ -105,6 +107,10 @@ const Login = (props) => {
                         >Create New Account</button>
                     </Link>
                 </div>
+                {
+                    loginMessage ? <p style={{color: "red"}}>{loginMessage}</p>
+                     : ""
+                }
             </form>
         </>
     )
